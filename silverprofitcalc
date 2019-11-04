@@ -1,0 +1,31 @@
+#include<stdio.h>
+#define FILENAME "silverdata1.txt"
+int main()
+{
+	double profit,owedsum,sum=0;
+	int count,op=1,i,silver;
+	FILE *silverdata;
+	
+
+			
+	silverdata=fopen(FILENAME,"r");
+	
+	if(silverdata==NULL)
+	{
+		printf("Error opening input file \n");
+	}
+	else
+	{
+		fscanf(silverdata,"%d",&count);
+		for(i=1;i<=count;i++)
+		{
+			fscanf(silverdata,"%d",&silver);
+			sum=sum+silver;
+		}
+	}	
+		owedsum=sum*0.10;
+		profit=sum-(2.0*owedsum);
+		printf("The owed sum is %.2lf, the profit is %.2lf\n",owedsum,profit);		owedsum=sum*0.10;
+	
+		fclose(silverdata);
+}
